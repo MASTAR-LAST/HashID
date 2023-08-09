@@ -1,7 +1,7 @@
 use std::{collections::HashMap, io::{stdin, stdout, Write}, env};
 
 // Aother: Muhammed Alkohawaldeh
-// github: <url>
+// github: https://github.com/MASTAR-LAST/HashID
 
 fn main() {
     let hash_types: HashMap<String, i16> = HashMap::from([
@@ -60,6 +60,7 @@ fn main() {
         }
     }
     println!("\nPossible hash types: ");
+    println!("\nPossible hash types: {:?}", hash);
 
     for hash_ in possible_hashes.iter(){
     println!("\thash : {}", hash_);
