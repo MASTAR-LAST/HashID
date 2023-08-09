@@ -1,4 +1,8 @@
-use std::{collections::HashMap, io::{stdin, stdout, Write}, env};
+use std::{
+    collections::HashMap,
+    env,
+    io::{stdin, stdout, Write},
+};
 
 // Aother: Muhammed Alkohawaldeh
 // github: https://github.com/MASTAR-LAST/HashID
@@ -39,10 +43,10 @@ fn main() {
         ("Tiger".to_string(), 192),
         ("Whirlpool".to_string(), 512),
     ]);
-    
+
     let mut possible_hashes: Vec<&String> = Vec::new();
     let mut hash: String = String::new();
-    
+
     let args: Vec<String> = env::args().collect();
     if args.len() > 1 {
         hash = args[1].clone();
@@ -54,15 +58,18 @@ fn main() {
 
     let hash_length: i16 = hash.trim().len() as i16;
 
-    for (key, value) in hash_types.iter(){
-        if *value == hash_length{
+    for (key, value) in hash_types.iter() {
+        if *value == hash_length {
             possible_hashes.push(key);
         }
     }
     println!("\nPossible hash types: ");
-    println!("\nPossible hash types: {:?}", hash);
 
-    for hash_ in possible_hashes.iter(){
-    println!("\thash : {}", hash_);
+    if possible_hashes.is_empty() {
+        println!("\n\x1b[37;3mNo possible hashes found !")
+    }
+
+    for hash_ in possible_hashes.iter() {
+        println!("\thash : {}", hash_);
     }
 }
